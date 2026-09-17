@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: |
+      Staging model for customer data.
+      This model selects customer records from the RAW.CUSTOMERS source
+      and provides a clean structure for downstream dbt models.
+
+    columns:
+      - name: customer_id
+        description: |
+          Unique identifier for each customer.
+          This column is expected to be unique and cannot be NULL.
+        tests:
+          - not_null          
